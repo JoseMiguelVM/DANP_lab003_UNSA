@@ -1,5 +1,6 @@
 package com.example.danp_lab2.Screen
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardOptions
@@ -35,7 +36,7 @@ fun StudentRegister(viewModel: HomeViewModel){
     var studentNames by rememberSaveable { mutableStateOf(("")) }
     var studentCod by rememberSaveable { mutableStateOf(("")) }
     var courseId by rememberSaveable { mutableStateOf(("")) }
-    //var listStudent = viewModel.getAllStudent().observeAsState().value
+
     var listCourse = viewModel.getAllCourse().observeAsState().value
 
     LazyColumn(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier
@@ -43,6 +44,15 @@ fun StudentRegister(viewModel: HomeViewModel){
         .fillMaxHeight(), verticalArrangement = Arrangement.Center ) {
 
         item {
+
+            Image(
+                painter = painterResource(R.drawable.students),
+                contentDescription = "Descripción de la imagen",
+                modifier = Modifier.size(100.dp)
+            )
+
+            Spacer(modifier = Modifier.height(26.dp))
+
             Text(text = "Registrar Estudiante", textAlign = TextAlign.Center,
                 modifier = Modifier.width(150.dp),fontSize = 25.sp,fontWeight = FontWeight.ExtraBold)
 
@@ -70,7 +80,7 @@ fun StudentRegister(viewModel: HomeViewModel){
             )
             TextField(
                 value = courseId,
-                leadingIcon = { Icon(painter = painterResource(id = R.drawable.baseline_book_24), contentDescription = null) },
+                leadingIcon = { Icon(painter = painterResource(id = R.drawable.save), contentDescription = null) },
                 onValueChange = {
                     courseId = it
 

@@ -1,5 +1,6 @@
 package com.example.danp_lab2.Screen
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardOptions
@@ -37,7 +38,17 @@ fun CourseRegister(viewModel: HomeViewModel){
         .fillMaxWidth()
         .fillMaxHeight(), verticalArrangement = Arrangement.Center ) {
 
+
         item {
+
+            Image(
+                painter = painterResource(R.drawable.curso),
+                contentDescription = "Descripción de la imagen",
+                modifier = Modifier.size(150.dp)
+            )
+
+            Spacer(modifier = Modifier.height(26.dp))
+
             Text(text = "Registrar Curso ", textAlign = TextAlign.Center,
                 modifier = Modifier.width(190.dp),fontSize = 25.sp,fontWeight = FontWeight.ExtraBold)
 
@@ -45,7 +56,7 @@ fun CourseRegister(viewModel: HomeViewModel){
 
             TextField(
                 value = courseName,
-                leadingIcon = { Icon(painter = painterResource(id = R.drawable.baseline_book_24), contentDescription = null) },
+                leadingIcon = { Icon(painter = painterResource(id = R.drawable.save), contentDescription = null) },
                 onValueChange = {
                     courseName = it
 
